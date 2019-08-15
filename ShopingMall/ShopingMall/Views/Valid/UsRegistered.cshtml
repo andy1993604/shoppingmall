@@ -1,0 +1,260 @@
+﻿@model IEnumerable<ShopingMall.Models.UserProfile>
+
+@{
+    ViewData["Title"] = "UsRegistered";
+}
+
+@*<h2>UsRegistered</h2>
+
+<table class="table">
+
+        @foreach (UserData userDatas in Model)
+        {
+    <tr>
+        <td>
+            @userDatas.UserID
+        </td>
+        <td>
+            @userDatas.UserName
+        <td>
+            @userDatas.Password
+        </td>
+    </tr>
+        }
+</table>
+
+
+
+
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.UserID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>*@
+
+@*<link href="https://fonts.googleapis.com/css?family=Bitter|Passion+One|Roboto|Taprom" rel="stylesheet">
+<link href="~/css/shopping.css" rel="stylesheet">
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+
+
+
+<!--nav-bar-->
+<div class="header">
+    <nav class="navbar navbar fixed-top  navbar-expand-lg navbar-light bg-light mb-4">
+        <div class="container align-items-center">
+
+            <a class="navbar-brand" href="#"> <span class="font-weight-bold Logo-icon"><i class="fas fa-shopping-basket"></i>Bootatle</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="nav-item nav-link active w-100 mg-2" href="#">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search what you want">
+                        <div class="input-group-append">
+                            <button class="btn btn-warning " style="border-radius:0;" type="button"><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="navbar-nav w-50">
+                    <i class="fas fa-shopping-cart cart-circle mr-2"></i>
+                    <button type="button" class="btn btn-outline-dark mr-1 btn-sm btn-radius" data-toggle="modal" data-target="#exampleModal" style="font-family: Microsoft JhengHei;"><i class="fas fa-user">登入</i></button>
+                    <button type="button" class="btn btn-danger btn-sm btn-radius" style="font-family: Microsoft JhengHei;" onclick="location.href='/Valid/UsRegistered'">註冊帳號</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header shadow">
+                <div class="container justify-content-center">
+                    <div class="row">
+                        <div class="col">
+                            <h5 class="modal-title text-center" style="font-family: 'Passion One', cursive; font-size:28px;" id="exampleModalLabel">Login</h5>
+                        </div>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="modal-body alert-link py-4 modal-bg">
+                <div class="container-fluid py-4">
+                    <div class="row justify-content-center">
+                        <div class="col-8">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text input-bg"><i class="fas fa-user"></i></span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Username">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-around">
+                        <div class="col-8">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text input-bg"><i class="fas fa-lock"></i></span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Password">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row justify-content-around">
+                        <div class="col-8">
+                            <button type="button" class="btn btn-danger btn-block btn-radius" data-dismiss="modal" data-toggle="popover" data-trigger="click" data-content="Some content">登入</button>
+                        </div>
+                    </div>
+                    <div class="row justify-content-around pt-2">
+                        <div class="col text-center font">
+                            或<a href="">忘記帳號/密碼</a>
+                        </div>
+                    </div>
+                    <div class="row justify-content-around py-2">
+                        <div class="col  font text-center">
+                            還沒有帳戶嗎?<a href="/Valid/UsRegistered">註冊</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<body style="padding-top:120px; background-color:#e2e2e2a3; font-family:微軟正黑體;">
+    <div class="container mt-4 pb-4">
+        <div class="row justify-content-center">
+            <div class="col col-lg-8  img-rounded" id="addmb">
+                <h2 class="pb-3 mb-3 border-bottom border-primary-light-100 mt-4">加入會員</h2>
+                <form>
+                    <div class="form-row justify-content-center">
+                        <div class="form-group col-lg-4">
+                            <label for="inputEmail4">姓名<font color="red">*</font></label>
+                            <input type="email" class="form-control is-valid" id="inputEmail4" placeholder="請輸入您的姓名">
+                        </div>
+                        <div class="form-group col-lg-4">
+                            <label for="inputEmail4">電子信箱<font color="red">*</font></label>
+                            <input type="email" class="form-control" id="inputEmail4" placeholder="請輸入您的E-mail">
+                        </div>
+                    </div>
+                    <div class="form-row justify-content-center">
+                        <div class="form-group col-lg-4">
+                            <label for="inputPassword4">會員密碼<font color="red">*</font></label>
+                            <input type="password" class="form-control" id="inputPassword4" placeholder="請設定您的密碼">
+                        </div>
+                        <div class="form-group col-lg-4">
+                            <label for="inputPassword4">密碼確認<font color="red">*</font></label>
+                            <input type="password" class="form-control" id="inputPassword4" placeholder="請再次確認您的密碼">
+                        </div>
+                    </div>
+                    <div class="form-row justify-content-center">
+                        <div class="form-group  col-lg-4">
+                            <label for="inputCity">行動電話<font color="red">*</font></label>
+                            <input type="text" class="form-control" id="inputCity" placeholder="請輸入您的行動電話">
+                        </div>
+                        <div class="form-group col-lg-4">
+                            <label for="inputState">性別<font color="red">*</font></label>
+                            <select id="inputState" class="form-control">
+                                <option selected>請選擇您的性別...</option>
+                                <option>男</option>
+                                <option>女</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row py-4 justify-content-center ">
+                        <div class="form-group col-sm-4">
+                            <button type="submit" class=" btn btn-outline-dark btn-block btn-radius">資料重填</button>
+                        </div>
+                        <div class="form-group col-sm-4">
+                            <button type="submit" class="btn btn-danger btn-block btn-radius">加入會員</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>*@
+
+
+<html>
+<body>
+
+    <table width="100%" border="1">
+        <tr>
+            <th>Month</th>
+            <th>Savings</th>
+            <th>Savings for holiday!</th>
+        </tr>
+        <tr>
+            <td>January</td>
+            <td>$100</td>
+            <td rowspan="2">$50</td>
+        </tr>
+        <tr>
+            <td>February</td>
+            <td>$80</td>
+        </tr>
+    </table>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
